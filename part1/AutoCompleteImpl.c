@@ -53,7 +53,7 @@ void traverse(char prefix[], struct TrieNode *root) {
     //TrieNode *end = search(root,prefix);
     int len = strlen(prefix);
 
-    if(end->isEndOfWord==true){
+    if(root->isEndOfWord==true){
         printf("%s\n",prefix);
     }
     while(i<26){
