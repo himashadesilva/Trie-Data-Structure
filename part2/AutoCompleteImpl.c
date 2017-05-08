@@ -15,14 +15,29 @@ void insert(struct TrieNode *root, const char *word) {
     int size = strlen(word);
     TrieNode *temp=root;
 
+    char pre[50];
+
     int i=0,index;
     for(i=0;i<size;i++){
         index = CHAR_TO_INDEX(word[i]);
         if(temp->children[index]==NULL){
             temp->children[index] = createTrieNode();
-            temp= temp->children[index];
+            //temp= temp->children[index];
+            strcpy(temp->label,word);
+            break;
+            //temp->label = word;
         }
         else{
+                if(temp->label[i]==word[i]){
+                    pre[i]=word[i];
+                    continue;
+                }
+                else{
+                    //pre[i]='\0';
+                    temp->label = NULL;
+                    temp->label = pre;
+                    break;
+                }
           temp= temp->children[index];
         }
 
