@@ -18,3 +18,4 @@ struct TrieNode *createTrieNode();
 struct TrieNode *search(struct TrieNode *root, const char *word);
 void traverse(char prefix[], struct TrieNode *root);
 void insert(struct TrieNode *root, const char *word);
+void compress(struct TrieNode *root);

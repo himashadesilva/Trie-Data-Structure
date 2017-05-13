@@ -29,12 +29,12 @@ int main() {
     int i=0;
      //printf("insert worked" );
     for(i=0;i<word_count;i++){
- 
+
         insert(root, words[i]);
         //printf("%s\n",words[i]);
 
     }
-
+    compress(root);
     while (1) {
         printf("Enter keyword: ");
         char str[100];
