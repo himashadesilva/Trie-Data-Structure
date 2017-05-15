@@ -1,4 +1,5 @@
 #include "AutoCompleteImpl.h"
+#include <time.h>
 
 #define NUMBER_OF_WORDS (354935)
 #define INPUT_WORD_SIZE (100)
@@ -37,6 +38,8 @@ int main() {
     compress(root);
     while (1) {
         printf("Enter keyword: ");
+        clock_t clkstart = clock();
+
         char str[100];
         receiveInput(str);
         printf("\n==========================================================\n");
@@ -44,5 +47,8 @@ int main() {
         TrieNode *end = search(root,str);
         traverse(str,end);
         printf("==========================================================\n");
+        clock_t clkend = clock();
+        float seconds = (float)(clkend - clkstart) / CLOCKS_PER_SEC;
+        printf("Time = %f\n",seconds);
     }
 }
